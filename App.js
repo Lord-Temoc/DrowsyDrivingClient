@@ -6,6 +6,7 @@ import {
   TextInput,
   Button,
   ScrollView,
+  SafeAreaView, 
 } from "react-native";
 
 export default function App() {
@@ -14,6 +15,27 @@ export default function App() {
   const [disableButton, setDisableButton] = React.useState(true);
   const [inputFieldEmpty, setInputFieldEmpty] = React.useState(true);
   const [serverMessages, setServerMessages] = React.useState([]);
+  const inputText = () => {
+    const [text, changeText] = React.useState("Enter IP Address: ");
+    const [num, changeNum] = React.useState(null);
+    
+    return (
+      <SafeAreaView>
+        <TextInput
+          style={styles.input}
+          changeText={changeText}
+          value={text}
+          />
+          <TextInput
+            style={styles.input}
+            changeText={changeNum}
+            value={num}
+            keyboardType="numeric"
+          />
+      </SafeAreaView>
+    );
+    }
+    
   var ws = React.useRef(new WebSocket("ws://localhost:8000")).current;
 
   React.useEffect(() => {
