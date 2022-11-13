@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TextInput,
   Button,
+  Divider,
   ScrollView,
   SafeAreaView, 
 } from "react-native";
@@ -63,6 +64,9 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
+      <Divider>
+        <TextInput />
+      </Divider>
       <Text>{serverState}</Text>
       {serverMessages.map((message, index) => (
         <Text key={index}>{message}</Text>
